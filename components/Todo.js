@@ -1,16 +1,16 @@
 class Todo {
-    constructor(data, selector) { //(selector could also be called templateSelector bc it allows us to select the template in the html) The constructor method gets called when you call the class using the 'new' keyword in index.js.
-      this._data = data; //Common pattern: for every argument, you assign it a value on the this object. You'll be able to access it anywhere you need it. 
-      this._templateElement = document.querySelector(selector); //Usually we could do this._selector = selector, but bc we need to select the template, we use queryselector here. Don't pass "#todo-template" (the literal string), bc we used the argument selector, so use selector.
+    constructor(data, selector) { 
+      this._data = data; 
+      this._templateElement = document.querySelector(selector); 
     }
 
-    _setEventListeners() { //Underscores mean private aka not to be used outside of the class.
+    _setEventListeners() { 
         this._todoCheckboxEl.addEventListener("change", () => {
-          this._data.completed = !this._data.completed; //when clicked, change completion status from true to false or vice versa. This is a common pattern to change from true to false or false to true. 
-        }); //We need to do this so that we have a connection btw the visible completion status and the actual completion status. 
+          this._data.completed = !this._data.completed; 
+        }); //This creates a connection btw the visible completion status and the actual completion status
 
        this._todoDeleteBtn.addEventListener("click", () => { 
-       this._todoElement.remove(); //removes the todoElement
+       this._todoElement.remove(); //Removes the todoElement
       });
     }
 
@@ -33,7 +33,7 @@ class Todo {
        this._todoLabel.setAttribute("for", `todo-${this._data.id}`); //Establishes relationship btw 'for' and 'id' attributes in the html
     }
 
-    getView () {   //Using this. makes the variables available everywhere.
+    getView () {   
         this._todoElement = this._templateElement.content
         .querySelector(".todo")
        .cloneNode(true); //Replaces the queryselector from index.js that we removed. It selects and clones the template created in the html. 
@@ -45,8 +45,8 @@ class Todo {
 
        todoNameEl.textContent = this._data.name; //The name property is being stored in data. Here we call todoNameEl.textContent and make it equal to data.name
       
-       //After moving checbox related stuff to its own method, call the function:
-       this._generateCheckboxEl(); //Inside a function to call a method you reference the 'this' object
+       //After moving checkbox related stuff to its own method, call the function:
+       this._generateCheckboxEl(); //Inside a function to call a method, reference the 'this' object
        this._setEventListeners();
        this._setDueDate(todoDate);
 
