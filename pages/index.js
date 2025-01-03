@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from 'https://jspm.dev/uuid'; 
+import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 
 import { initialTodos, validationConfig } from "../utils/constants.js";
 import Todo from "../components/Todo.js";
@@ -7,7 +7,7 @@ import FormValidator from "../components/FormValidator.js"; //Instantiate below
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
-const addTodoForm = addTodoPopup.querySelector(".popup__form");
+const addTodoForm = addTodoPopup.querySelector(".popup__form"); //Could replace with: const addTodoForm = document.forms["add-todo-form"];
 const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
 const todosList = document.querySelector(".todos__list");
 
@@ -19,11 +19,12 @@ const closeModal = (modal) => {
   modal.classList.remove("popup_visible");
 };
 
-const generateTodo = (data) => { //This connects data to generateTodo
+const generateTodo = (data) => {
+  //This connects data to generateTodo
   const todo = new Todo(data, "#todo-template"); //Instantiate
   const todoElement = todo.getView(); //The instance of the Todo class is called todo
   return todoElement;
- };
+};
 
 addTodoButton.addEventListener("click", () => {
   openModal(addTodoPopup);
@@ -43,17 +44,20 @@ addTodoForm.addEventListener("submit", (evt) => {
   date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
 
   const id = uuidv4(); //Creates id
-  const values = { name, date, id }; //Passes id 
-  const todo = generateTodo(values);
-  todosList.append(todo);
+  const values = { name, date, id }; //Passes id
+  renderTodo(values); //Calls the renderTodo below
 
   closeModal(addTodoPopup);
 });
 
-//This connects the array of objects in constants.js to generateTodo above
-initialTodos.forEach((item) => {
+const renderTodo = (item) => {
   const todo = generateTodo(item);
   todosList.append(todo);
+};
+
+//Connects the array of objects in constants.js to generateTodo above
+initialTodos.forEach((item) => {
+  renderTodo(item); //Calls renderTodo above
 });
 
 //Instantiate- assign it to a variable
