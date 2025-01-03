@@ -1,7 +1,5 @@
 class FormValidator {
     constructor(settings, formEl) { 
-       //this._formEl = document.querySelector(formEl); //Can't use a js form element as a selector
-      //important to know the difference btw a selector and an element, which is the result of the queryselector
       this._inputSelector = settings.inputSelector;
       this._submitButtonSelector = settings.submitButtonSelector;
       this._errorClass = settings.errorClass;
@@ -14,7 +12,7 @@ class FormValidator {
         this._errorElementId = `#${inputElement.id}-error`;
         this._errorElement = this._formEl.querySelector(this._errorElementId);
         inputElement.classList.add(this._inputErrorClass);
-        this._errorElement.textContent = inputElement.validationMessage; //.validaiontMessage / .errorMessage
+        this._errorElement.textContent = inputElement.validationMessage; 
         this._errorElement.classList.add(this._errorClass);
       };
 
@@ -53,7 +51,7 @@ class FormValidator {
     }
         
     _toggleButtonState() {
-            if (this._hasInvalidInput(this._inputList)) {  //pass this._inputList here?
+            if (this._hasInvalidInput(this._inputList)) {  
                 this.disableSubmitButton();}
             else {
                 this.enableSubmitButton();
@@ -78,7 +76,7 @@ class FormValidator {
         };
 
     enableValidation(){
-        this._formEl.addEventListener("submit", (evt) => { //Don't need to pass an argument here
+        this._formEl.addEventListener("submit", (evt) => { 
             evt.preventDefault();
         });
             this._setEventListeners(); 
