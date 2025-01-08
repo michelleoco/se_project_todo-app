@@ -4,6 +4,7 @@ import { initialTodos, validationConfig } from "../utils/constants.js";
 import Todo from "../components/Todo.js";
 
 import FormValidator from "../components/FormValidator.js"; //Instantiate below
+import Section from "../components/Section.js";
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
@@ -26,6 +27,18 @@ const generateTodo = (data) => {
   return todoElement;
 };
 
+//instantiate
+const section = new Section({
+  items: initialTodos,
+  renderer: (item) => {
+    const todo = generateTodo(item);
+    section.addItem(todo);
+  },
+  containerSelector: ".todos__list",
+});
+
+section.renderItems(); //calls section instance's renderItem method.
+
 addTodoButton.addEventListener("click", () => {
   openModal(addTodoPopup);
 });
@@ -45,19 +58,9 @@ addTodoForm.addEventListener("submit", (evt) => {
 
   const id = uuidv4(); //Creates id
   const values = { name, date, id }; //Passes id
-  renderTodo(values); //Calls the renderTodo below
+  section.addItem();
 
   closeModal(addTodoPopup);
-});
-
-const renderTodo = (item) => {
-  const todo = generateTodo(item);
-  todosList.append(todo);
-};
-
-//Connects the array of objects in constants.js to generateTodo above
-initialTodos.forEach((item) => {
-  renderTodo(item); //Calls renderTodo above
 });
 
 //Instantiate- assign it to a variable
