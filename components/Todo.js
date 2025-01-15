@@ -1,18 +1,26 @@
 class Todo {
-  constructor(data, selector) {
+  constructor(data, selector, handleCheck) {
     this._data = data;
     this._templateElement = document.querySelector(selector);
+    this._handleCheck = handleCheck;
+    this._completed = data.completed;
   }
 
   _setEventListeners() {
     this._todoCheckboxEl.addEventListener("change", () => {
-      this._data.completed = !this._data.completed;
-    }); //This creates a connection btw the visible completion status and the actual completion status
+      this._data.completed = !this._data.completed; //This creates a connection btw the visible completion status and the actual completion status
+      this._toggleCompletion();
+      this._handleCheck(this._completed);
+    });
 
     this._todoDeleteBtn.addEventListener("click", () => {
       this._todoElement.remove(); //Removes the todoElement
     });
   }
+
+  _toggleCompletion = () => {
+    this._completed = !this._completed;
+  };
 
   _setDueDate(todoDate) {
     const dueDate = new Date(this._data.date);
