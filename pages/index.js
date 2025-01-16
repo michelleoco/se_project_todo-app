@@ -19,6 +19,14 @@ function handleCheck(completed) {
   todoCounter.updateCompleted(completed);
 }
 
+function handleDelete(completed) {
+  //if completed, call updateCompleted, if update is false, don't need to call
+  if (completed) {
+    todoCounter.updateCompleted(false);
+  }
+  todoCounter.updateTotal(false);
+}
+
 const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
   handleFormSubmit: (data) => {
@@ -42,7 +50,7 @@ addTodoPopup.setEventListeners();
 
 const generateTodo = (data) => {
   //Connects data to generateTodo
-  const todo = new Todo(data, "#todo-template", handleCheck); //Instantiate- assign it to a variable
+  const todo = new Todo(data, "#todo-template", handleCheck, handleDelete); //Instantiate- assign it to a variable
   const todoElement = todo.getView(); //The instance of the Todo class is called todo
   return todoElement;
 };
