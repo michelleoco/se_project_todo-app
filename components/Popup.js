@@ -17,7 +17,7 @@ class Popup {
 
   close() {
     this._popupElement.classList.remove("popup_visible");
-    //TODO: remove the escapeclose listener
+    document.removeEventListener("keyup", this._handleEscapeClose);
   }
 
   //Handles close btn and modal listener

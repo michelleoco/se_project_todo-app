@@ -27,6 +27,11 @@ function handleDelete(completed) {
   todoCounter.updateTotal(false);
 }
 
+const renderTodo = (item) => {
+  const todo = generateTodo(item);
+  section.addItem(todo);
+};
+
 const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
   handleFormSubmit: (data) => {
@@ -39,10 +44,12 @@ const addTodoPopup = new PopupWithForm({
     const id = uuidv4(); //Creates id
     const values = { name, date, id }; //Passes id
 
-    const todo = generateTodo(values);
-    section.addItem(todo);
+    //const todo = generateTodo(values);
+    renderTodo(values);
 
     addTodoPopup.close();
+
+    todoCounter.updateTotal(true);
   },
 });
 
@@ -59,8 +66,8 @@ const generateTodo = (data) => {
 const section = new Section({
   items: initialTodos,
   renderer: (item) => {
-    const todo = generateTodo(item);
-    section.addItem(todo);
+    //const todo = generateTodo(item);
+    renderTodo(item);
   },
   containerSelector: ".todos__list",
 });
