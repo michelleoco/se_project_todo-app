@@ -4,11 +4,11 @@ class Popup {
     this.popupCloseBtn = this._popupElement.querySelector(".popup__close");
   }
 
-  _handleEscapeClose(evt) {
+  _handleEscapeClose = (evt) => {
     if (evt.key === "Escape") {
       this.close();
     }
-  }
+  }; //JS bind method could also be a solution here to make sure this is representing an instance of the class and not the document
 
   open() {
     this._popupElement.classList.add("popup_visible");
