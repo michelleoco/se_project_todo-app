@@ -1,20 +1,103 @@
 # Simple Todo App
 
-A simple “to-do” application. Existing JavaScript was refactored in OOP for this project.
+_A clean and simple to-do list application with object-oriented JavaScript._
 
-## Functionality
+---
 
-The application includes a button to add a to-do item. The pop-up form takes the task to be done and the date that it needs to be done by. There are checkboxes in the app to click when the tasks are completed and delete buttons to delete tasks.
-[Todo_app_screenshot.pdf](https://github.com/user-attachments/files/18293733/Todo_app_screenshot.pdf)
+## Live Project
 
-## Technology
+**Domain:** [https://michelleoco.github.io/se_project_todo-app/](https://michelleoco.github.io/se_project_todo-app/)
 
-Html, CSS, and Javascript were used. Javascript was refactored in OOP, creating the Todo and FormValidator classes to ensure each performs specific tasks.
+---
 
-A uuid package was imported to create unique IDs for to-do items.
+## Introduction
 
-## Deployment
+**Simple Todo App** is a straightforward application that helps users track tasks and deadlines. This project involved refactoring existing JavaScript code into an object-oriented design to improve maintainability and clarity.
 
-This project is deployed on GitHub Pages:
+---
 
-- https://github.com/michelleoco/se_project_todo-app.git
+## Project Goals
+
+- Build a user-friendly to-do list interface.
+- Refactor legacy JavaScript into clean, modular OOP classes.
+- Enable adding, completing, and deleting tasks with ease.
+- Ensure reliable input validation for task forms.
+
+---
+
+## What Was Done
+
+Key development steps included:
+
+1. **Functionality Implementation**
+
+   - Added a button to open a pop-up form for new tasks.
+   - Collected task description and due date from users.
+   - Created checkboxes to mark tasks as complete.
+   - Provided delete buttons for task removal.
+
+2. **Object-Oriented Refactoring**
+
+   - Developed a **Todo** class to manage individual tasks.
+   - Created a **FormValidator** class to validate form inputs.
+   - Applied modular design for better code organization.
+
+3. **Unique ID Generation**
+
+   - Used the **uuid** package to assign unique identifiers to tasks.
+
+---
+
+## Features
+
+- Add new to-do items with description and due date.
+- Mark tasks complete with checkboxes.
+- Delete tasks individually.
+- Form validation for task inputs.
+
+---
+
+## Technologies
+
+- **HTML5** – Structure and markup
+- **CSS3** – Styling and layout
+- **JavaScript (ES6)** – Logic refactored into OOP classes
+- **uuid** – Unique ID generation for tasks
+
+---
+
+## Screenshots
+
+**Todo App Interface**  
+![Todo App Screenshot](./screenshots/todo_app_screenshot.pdf)
+
+---
+
+## Conclusion
+
+The Simple Todo App provides an easy-to-use task management tool with clean, object-oriented JavaScript architecture that improves code maintainability.
+
+---
+
+## Future Improvements
+
+- **Add localStorage support** to save tasks between sessions.
+- **Fix**: Enhance form validation **to achieve** more robust user input handling.
+- **Implement task editing** for updating existing items.
+- **Add filtering and sorting** of tasks by date or completion status.
+
+---
+
+## Deployment & Requirements
+
+**Requirements:**
+
+- Modern web browser (Chrome, Firefox, Edge, Safari)
+
+**Installation:**
+
+```bash
+git clone https://github.com/michelleoco/se_project_todo-app.git
+cd se_project_todo-app
+# Open index.html in your browser or serve with any static server
+```
