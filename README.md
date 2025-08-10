@@ -4,6 +4,23 @@ _A clean and simple to-do list application built with object-oriented JavaScript
 
 ---
 
+# Table of Contents
+
+- [Live Project](#live-project)
+- [Introduction](#introduction)
+- [Project Goals](#project-goals)
+- [Architecture Overview](#architecture-overview)
+- [What Was Done](#what-was-done)
+- [Features](#features)
+- [Technologies](#technologies)
+- [Screenshots](#screenshots)
+- [Conclusion](#conclusion)
+- [Future Improvements](#future-improvements)
+- [Deployment & Requirements](#deployment--requirements)
+- [Development Notes](#development-notes)
+
+---
+
 ## Live Project
 
 **Domain:** [https://michelleoco.github.io/se_project_todo-app/](https://michelleoco.github.io/se_project_todo-app/)
