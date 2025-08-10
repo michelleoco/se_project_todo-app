@@ -1,6 +1,6 @@
 # Simple Todo App
 
-_A clean and simple to-do list application with object-oriented JavaScript._
+_A clean and simple to-do list application built with object-oriented JavaScript._
 
 ---
 
@@ -12,16 +12,30 @@ _A clean and simple to-do list application with object-oriented JavaScript._
 
 ## Introduction
 
-**Simple Todo App** is a straightforward application that helps users track tasks and deadlines. This project involved refactoring existing JavaScript code into an object-oriented design to improve maintainability and clarity.
+**Simple Todo App** is a straightforward application that helps users track tasks and deadlines. This project demonstrates modern JavaScript development practices using ES6 modules and object-oriented programming principles to create a maintainable and scalable codebase.
 
 ---
 
 ## Project Goals
 
-- Build a user-friendly to-do list interface.
-- Refactor legacy JavaScript into clean, modular OOP classes.
-- Enable adding, completing, and deleting tasks with ease.
-- Ensure reliable input validation for task forms.
+- Build a user-friendly to-do list interface
+- Implement clean, modular object-oriented JavaScript architecture
+- Enable adding, completing, and deleting tasks with ease
+- Provide reliable input validation for task forms
+- Demonstrate modern ES6 module system usage
+
+---
+
+## Architecture Overview
+
+The application follows object-oriented design principles with the following class structure:
+
+- **Todo**: Manages individual task items and their interactions
+- **FormValidator**: Handles form input validation and error display
+- **Popup**: Base class for modal popup functionality
+- **PopupWithForm**: Extends Popup to handle form-specific popup behavior
+- **Section**: Manages rendering and display of todo items in the DOM
+- **TodoCounter**: Tracks and displays completion statistics
 
 ---
 
@@ -29,40 +43,50 @@ _A clean and simple to-do list application with object-oriented JavaScript._
 
 Key development steps included:
 
-1. **Functionality Implementation**
+1. **Core Functionality Implementation**
 
-   - Added a button to open a pop-up form for new tasks.
-   - Collected task description and due date from users.
-   - Created checkboxes to mark tasks as complete.
-   - Provided delete buttons for task removal.
+   - Added a button to open a pop-up form for new tasks
+   - Collected task description and due date from users
+   - Created checkboxes to mark tasks as complete
+   - Provided delete buttons for task removal
+   - Implemented real-time counter updates
 
-2. **Object-Oriented Refactoring**
+2. **Object-Oriented Architecture**
 
-   - Developed a **Todo** class to manage individual tasks.
-   - Created a **FormValidator** class to validate form inputs.
-   - Applied modular design for better code organization.
+   - Developed a **Todo** class to manage individual task behavior
+   - Created a **FormValidator** class for robust input validation
+   - Built a **Popup** base class for modal functionality
+   - Extended popup functionality with **PopupWithForm** class
+   - Implemented **Section** class for DOM manipulation and rendering
+   - Added **TodoCounter** class for completion tracking
 
-3. **Unique ID Generation**
-
-   - Used the **uuid** package to assign unique identifiers to tasks.
+3. **Modern JavaScript Features**
+   - Used ES6 modules with import/export statements
+   - Implemented unique ID generation with UUID from CDN
+   - Applied modern DOM manipulation techniques
+   - Used template elements for efficient rendering
 
 ---
 
 ## Features
 
-- Add new to-do items with description and due date.
-- Mark tasks complete with checkboxes.
-- Delete tasks individually.
-- Form validation for task inputs.
+- Add new to-do items with description and optional due date
+- Mark tasks complete/incomplete with checkboxes
+- Delete tasks individually
+- Real-time counter showing completed vs total tasks
+- Form validation with error messages
+- Responsive popup modal interface
+- Keyboard accessibility (ESC to close popups)
 
 ---
 
 ## Technologies
 
-- **HTML5** – Structure and markup
-- **CSS3** – Styling and layout
-- **JavaScript (ES6)** – Logic refactored into OOP classes
-- **uuid** – Unique ID generation for tasks
+- **HTML5** – Structure and semantic markup
+- **CSS3** – Styling with BEM methodology
+- **JavaScript (ES6)** – Modular OOP architecture with classes
+- **UUID (CDN)** – Unique identifier generation for tasks
+- **Template Elements** – Efficient DOM rendering
 
 ---
 
@@ -75,16 +99,19 @@ Key development steps included:
 
 ## Conclusion
 
-The Simple Todo App provides an easy-to-use task management tool with clean, object-oriented JavaScript architecture that improves code maintainability.
+The Simple Todo App demonstrates modern JavaScript development practices with a clean, object-oriented architecture that promotes code maintainability and scalability. The modular design makes it easy to extend functionality and add new features.
 
 ---
 
 ## Future Improvements
 
-- **Add localStorage support** to save tasks between sessions.
-- **Fix**: Enhance form validation **to achieve** more robust user input handling.
-- **Implement task editing** for updating existing items.
-- **Add filtering and sorting** of tasks by date or completion status.
+- **Add localStorage support** to persist tasks between browser sessions
+- **Enhance form validation** to achieve more robust user input handling
+- **Implement task editing** functionality for updating existing items
+- **Add filtering and sorting** of tasks by date or completion status
+- **Implement drag-and-drop** reordering of tasks
+- **Add task categories** or tags for better organization
+- **Include task priority levels** with visual indicators
 
 ---
 
@@ -101,3 +128,13 @@ git clone https://github.com/michelleoco/se_project_todo-app.git
 cd se_project_todo-app
 # Open index.html in your browser or serve with any static server
 ```
+
+---
+
+## Development Notes
+
+- The application uses ES6 modules, so it must be served from a web server (not opened directly as a file) for proper functionality
+- UUID generation is handled via CDN import for simplicity
+- The codebase follows object-oriented principles with clear separation of concerns
+- CSS follows BEM methodology for maintainable styling
+- Form validation provides real-time feedback to users

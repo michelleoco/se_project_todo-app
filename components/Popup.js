@@ -8,7 +8,7 @@ class Popup {
     if (evt.key === "Escape") {
       this.close();
     }
-  }; //JS bind method could also be a solution here to make sure this is representing an instance of the class and not the document
+  };
 
   open() {
     this._popupElement.classList.add("popup_visible");
@@ -20,7 +20,6 @@ class Popup {
     document.removeEventListener("keyup", this._handleEscapeClose);
   }
 
-  //Handles close btn and modal listener
   setEventListeners() {
     this._popupElement.addEventListener("mousedown", (evt) => {
       if (
@@ -33,5 +32,3 @@ class Popup {
 }
 
 export default Popup;
-
-//popup and modal are used interchangeably

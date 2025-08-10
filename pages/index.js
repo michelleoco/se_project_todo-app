@@ -13,14 +13,13 @@ const addTodoPopupEl = document.querySelector("#add-todo-popup");
 const addTodoForm = addTodoPopupEl.querySelector(".popup__form");
 const todosList = document.querySelector(".todos__list");
 
-const todoCounter = new TodoCounter(initialTodos, ".counter__text"); //Instantiate
+const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 
 function handleCheck(completed) {
   todoCounter.updateCompleted(completed);
 }
 
 function handleDelete(completed) {
-  //if completed, call updateCompleted, if update is false, don't need to call
   if (completed) {
     todoCounter.updateCompleted(false);
   }
@@ -38,13 +37,13 @@ const addTodoPopup = new PopupWithForm({
     const name = data.name;
     const dateInput = data.date;
 
-    const date = new Date(dateInput); // Creates a date object and adjusts for timezone
+    // Creates a date object and adjusts for timezone
+    const date = new Date(dateInput);
     date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
 
-    const id = uuidv4(); //Creates id
-    const values = { name, date, id }; //Passes id
+    const id = uuidv4();
+    const values = { name, date, id };
 
-    //const todo = generateTodo(values);
     renderTodo(values);
 
     addTodoPopup.close();
@@ -57,51 +56,27 @@ addTodoPopup.setEventListeners();
 
 const generateTodo = (data) => {
   //Connects data to generateTodo
-  const todo = new Todo(data, "#todo-template", handleCheck, handleDelete); //Instantiate- assign it to a variable
-  const todoElement = todo.getView(); //The instance of the Todo class is called todo
+  const todo = new Todo(data, "#todo-template", handleCheck, handleDelete);
+  const todoElement = todo.getView();
   return todoElement;
 };
 
-//Instantiate
+//Creates a new Section instance, passing the initialTodos array and a renderer function
+// The renderer function calls generateTodo to create a new Todo instance
 const section = new Section({
   items: initialTodos,
   renderer: (item) => {
-    //const todo = generateTodo(item);
     renderTodo(item);
   },
   containerSelector: ".todos__list",
 });
 
-section.renderItems(); //Calls section instance's renderItem method
+section.renderItems();
 
 addTodoButton.addEventListener("click", () => {
   addTodoPopup.open();
 });
 
-//Instantiate
 const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
 
-newTodoValidator.enableValidation(); //Call the newTodoValidator
-
-//addTodoCloseBtn.addEventListener("click", () => {
-//  addTodoPopup.close();
-//});
-
-// addTodoForm.addEventListener("submit", (evt) => {
-//   evt.preventDefault();
-//   const name = evt.target.name.value;
-//   const dateInput = evt.target.date.value;
-
-//   // Creates a date object and adjusts for timezone
-//   const date = new Date(dateInput);
-//   date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-
-//   const id = uuidv4(); //Creates id
-//   const values = { name, date, id }; //Passes id
-
-//   const todo = generateTodo(values); //Missing and needed to pass values
-//   section.addItem(todo);
-
-//   //closeModal(addTodoPopupEl);
-//   addTodoPopup.close();
-// });
+newTodoValidator.enableValidation();
