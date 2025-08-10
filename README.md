@@ -110,7 +110,10 @@ Key development steps included:
 ## Screenshots
 
 **Todo App Interface**  
-![Todo App Screenshot](./screenshots/todo_app_screenshot.pdf)
+![Todo App Screenshot](./screenshots/todo_app.png)
+
+**Todo App Modal**  
+![Todo App Modal Screenshot](./screenshots/todo_app_modal.png)
 
 ---
 
